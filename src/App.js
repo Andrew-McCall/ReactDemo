@@ -1,14 +1,14 @@
 import './App.css';
 
 import Header from './components/Header/header';
-import Element from "./components/HelloWorld/helloWorld.jsx"
+import Message from './components/message';
 
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Element/>
+      <Message name={"Andrew McCall"} isGreeting={false}/>
     </div>
   );
 }
