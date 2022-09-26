@@ -1,6 +1,6 @@
 import './App.css';
 
-import Element from "./components/helloWorld.jsx"
+import Element from "./components/HelloWorld/helloWorld.jsx"
 
 
 function App() {

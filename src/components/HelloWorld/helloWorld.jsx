@@ -1,3 +1,5 @@
+import "./helloWorld.css"
+
 const Element = () => {
 
     const isGreeting = true;
@@ -12,17 +14,17 @@ const Element = () => {
     }
 
     if (isGreeting){
-        return (<div>
-            <h1>Hello World,</h1>
+        return (<>
+            <h1 className="greeting">Hello World,</h1>
             {nameGen()}
-            {lisht.map( (value, index) => <p key={index}>{value}</p> )}
-        </div>);
+            {/* {lisht.map( (value, index) => <p key={index}>{value}</p> )} */}
+        </>);
     }else{
-        return (<div>
+        return (<>
             <h1>Goodbye,</h1>
             <h2>{nameGen()}</h2>
             <p>Nice seeing you!</p>
-        </div>);
+        </>);
     }
     
 } 
