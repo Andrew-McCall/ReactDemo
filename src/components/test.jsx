@@ -7,25 +7,31 @@ const TestPage = () => {
 
     const {id} = useParams();
 
-    const [fact, setFact] = useState("Loading!");
+    const [facts, setFacts] = useState([]);
 
     useEffect( () => {
-        // fetch("https://catfact.ninja/fact").then(res => {
+        AddFact();
+    }, [])
+
+    const AddFact = () => {
+        // fetch("https://catfact.ninja/fact").then(res=> {
         //     res.json().then(data => {
-        //         setFact(data.fact)
+        //         setFacts([...facts, data.fact])
         //     })
         // })
         axios.get("https://catfact.ninja/fact").then(res => {
-            setFact(res.data.fact)
+            setFacts([...facts, res.data.fact])
         })
-    }, [])
+    }
 
     return(
         <div>
 
             <h1>Test Page</h1>
-            <Message isGreeting={(id%2 === 0)} name={id}/>
-            <h3>{fact}</h3>
+            <Message isGreeting={(id%2 === 0)} name={id}/><br/>
+            <button onClick={AddFact}> Get Fact </button>
+            {(facts.length > 0)? <ol>{facts.map( (f, i) => <li key={i}>{f}</li>)}</ol> : <h3>Press the Button</h3>}
+            {/* { (condition)? true : false } */}
 
         </div>
     )
