@@ -5,6 +5,7 @@ var variableExample = 0;
 const Clicker = () => {
 
     const [count, setCount] = useState(0);
+
     /// Every ReRender - useEffect(func)
     useEffect( () => {
         console.log("ReRender")
@@ -28,10 +29,8 @@ const Clicker = () => {
     }
 
     return(<div>
-
         <p> Count: {count}</p>
         <button onClick={AddOne}> Add One </button>
-
     </div>)
 
 }

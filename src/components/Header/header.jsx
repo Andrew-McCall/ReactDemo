@@ -1,11 +1,12 @@
-const Header = () => {
+import {Link} from "react-router-dom";
 
+const Header = () => {
+    const id = 250;
     return(
         <header className="App-header">
-            <nav>
-                <a href="https://www.qa.com" target="_blank" rel="noopener noreferrer"> Qa Website </a>
-                <a href="/"> Home </a>
-            </nav>
+            <Link to="/"> Home </Link>
+            <Link to="contact"> Contact Us </Link>
+            <Link to={`Test/${id}`}> Test </Link>
         </header>
     )
     
