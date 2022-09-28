@@ -30,6 +30,7 @@ class Clicker extends Component{
 
                 <h1>{this.state.clicks}</h1>
                 <button onClick={this.AddOne}>Click</button>
+
             </div>
         )
     }
@@ -41,9 +42,6 @@ class Clicker extends Component{
     componentWillUnmount(){
         console.log("componentWillUnmount")
     }
-
-    
-
 
 }
 

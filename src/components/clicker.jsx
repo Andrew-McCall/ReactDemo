@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+var variableExample = 0;
 
 const Clicker = () => {
 
-    // count getter
-    // setCount is the setter
-    // useSate(x) - X is the defualt value
     const [count, setCount] = useState(0);
+    /// Every ReRender - useEffect(func)
+    useEffect( () => {
+        console.log("ReRender")
+    } )
+
+    /// First Render - useEffect(func, [])
+    useEffect( () => {
+        console.log("First Render")
+    }, [] )
+
+    /// Every Change - useEffect(func, var)
+    useEffect( () => {
+        console.log("Every Change")
+    },  [variableExample])
+    
 
     const AddOne = (e) => {
         setCount(count+1)
+        variableExample++;
         console.log(count)
     }
 
