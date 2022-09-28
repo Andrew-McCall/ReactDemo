@@ -1,5 +1,5 @@
 import './App.css';
-import Clicker from './components/clicker';
+import Clicker from './components/clickerComponent';
 
 import Header from './components/Header/header';
 import Message from './components/message';
