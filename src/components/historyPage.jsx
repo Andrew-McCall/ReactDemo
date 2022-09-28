@@ -1,16 +1,17 @@
 // NOT useHistory
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react"
 
 const HistoryPage = () => {
-    
     const pageManager = useNavigate();
 
-    const OneClick = (e) => {
-        e.preventDefault();
-        pageManager("/")
-    }
+    const reboud = "/test/253"
 
-    return(<button onClick={OneClick}> Ruby </button>)
+    useEffect( () => {
+        pageManager(reboud)
+    })
+   
+    return(<h1>ERRORRROROR!</h1>)
 
 }
 
