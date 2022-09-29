@@ -1,17 +1,31 @@
 // NOT useHistory
 import {useNavigate} from "react-router-dom";
-import {useEffect} from "react"
+import {useEffect, useContext} from "react"
+
+import MyContext from "./context/context";
 
 const HistoryPage = () => {
-    const pageManager = useNavigate();
+    // const pageManager = useNavigate();
 
-    const reboud = "/test/253"
+    // const reboud = "/test/253"
 
-    useEffect( () => {
-        pageManager(reboud)
-    })
+    // useEffect( () => {
+    //     pageManager(reboud)
+    // })
    
-    return(<h1>ERRORRROROR!</h1>)
+    // return(<h1>ERRORRROROR!</h1>)
+
+    var {context, setContext} = useContext(MyContext)
+    
+    const ButtonClick = (e) => {
+        setContext(context + "!")
+    }
+
+
+    return(<>
+    <button onClick={ButtonClick}> Edit </button>
+    <p>{context}</p>
+    </>)
 
 }
 

@@ -9,8 +9,6 @@ const Cars = [
 
 const Data = () => {
 
-    console.log(data)
-
     if (data){
         return (<div>
             <p>{data.name}</p>

@@ -1,8 +1,8 @@
 import Message from "./message";
 import axios from "axios"
 import {useParams} from "react-router-dom"
-import {useState, useEffect} from "react"
-
+import {useState, useEffect, useContext} from "react"
+import MyContext from "./context/context";
 const TestPage = () => {
 
     const {id} = useParams();
@@ -24,6 +24,8 @@ const TestPage = () => {
         })
     }
 
+    const {context} = useContext(MyContext)
+
     return(
         <div>
 
@@ -32,6 +34,7 @@ const TestPage = () => {
             <button onClick={AddFact}> Get Fact </button>
             {(facts.length > 0)? <ol>{facts.map( (f, i) => <li key={i}>{f}</li>)}</ol> : <h3>Press the Button</h3>}
             {/* { (condition)? true : false } */}
+            {context}
 
         </div>
     )
