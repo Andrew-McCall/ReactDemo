@@ -7,6 +7,7 @@ import Car from "./components/CarExercise/Car.jsx"
 import TestPage from './components/test';
 import HistoryPage from './components/historyPage';
 import MyContext from './components/context/context';
+import {ThemeContext, ThemeToggle} from './components/context/ThemeContext';
 
 import {
   BrowserRouter,
@@ -15,19 +16,27 @@ import {
   
 } from "react-router-dom";
 import Data from './components/data/Data.jsx';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 
 // Router < Routes < [Route]
 {/* <Message isGreeting={true} name="Andrew"/> */}
 
 function App() {
 
+
+
   const [context, setContext] = useState("Tets!");
+  const [theme, toggleTheme] = useReducer(ThemeToggle, "dark")
+
+
   return (
     <BrowserRouter>
       
 
-        <Header/>
+        <Header/>        
+          
+ 
+        <ThemeContext.Provider value={ {theme, toggleTheme} }>
         <MyContext.Provider value={ {context, setContext} }>
           <Routes>
             <Route path='/' element={<Data/>}/> 
@@ -36,10 +45,14 @@ function App() {
             <Route path='/contact' element={<h1>Contact</h1>}/>
             <Route path='*' element={<h1>404 Not Found!</h1>}/>
           </Routes>
+
         </MyContext.Provider>
+        </ThemeContext.Provider>
         <footer><p>Andrew McCall</p></footer>
 
-        
+        <script
+        src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+        crossorigin></script>
     </BrowserRouter>
   );
 }
