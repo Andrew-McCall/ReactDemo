@@ -13,8 +13,10 @@ import {
   Route
   
 } from "react-router-dom";
+import Data from './components/data/Data.jsx';
 
 // Router < Routes < [Route]
+{/* <Message isGreeting={true} name="Andrew"/> */}
 
 function App() {
   return (
@@ -24,7 +26,7 @@ function App() {
 
           <Routes>
 
-            <Route path='/' element={<Message isGreeting={true} name="Andrew"/>}/>
+            <Route path='/' element={<Data/>}/> 
             <Route path='/history' element={<HistoryPage/>}/>
             <Route path='/Test/:id' element={<TestPage/>}/>
             <Route path='/contact' element={<h1>Contact</h1>}/>
